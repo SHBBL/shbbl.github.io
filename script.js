@@ -114,7 +114,7 @@ function exit() {
     $('.tv').addClass('collapse');
     term.disable();
     setTimeout(function() {
-    close()
+    window.close()
     }, 2000);
 }
 
