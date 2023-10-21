@@ -86,7 +86,7 @@ var term = $('#terminal').terminal(function(command, term) {
     prompt: 'root@null> '
 });
 
-clear();
+rerun();
 
 if (!term.enabled()) {
     term.find('.cursor').addClass('blink');
