@@ -14,8 +14,8 @@ var term = $('#terminal').terminal(function(command, term) {
     else{
         for (let i = 0; i < cmd.length; i++) {
             if (cmd[i] != "&&"){
-                if (cmd[i] === 'exit') {
-                    exit();
+                if (cmd[i] === 'shutdown') {
+                    shutdown();
                 } else if (cmd[i] === 'echo') {
                     term.echo(cmd[i+1]);
                 }else if (cmd[i] === 'whoami') {
@@ -23,7 +23,7 @@ var term = $('#terminal').terminal(function(command, term) {
                 }else if (cmd[i] === 'cmd') {
                     rerun();
                 }else if (cmd[i] === 'ls' || cmd[i] === 'l' || cmd[i] === 'dir') {
-                    term.echo("index.html   script.js   style.css");
+                    term.echo("index.html   script.js   style.css   README.md   CNAME");
                 }else if (cmd[i] === 'help') {
                     help();
                 }else if (cmd[i] === 'setname') { 
@@ -46,6 +46,10 @@ var term = $('#terminal').terminal(function(command, term) {
                         case 'style.css':
                             gettext('style.css');
                             break;
+                        case 'README.md':
+                            gettext('README.md');
+                        case 'CNAME':
+                            gettext('CNAME');
                         default:
                             term.error('File not found');
                             break;
@@ -110,12 +114,9 @@ function rerun() {
     term.echo('Type [[b;#fff;]help] to list commands');
 }
 
-function exit() {
+function shutdown() {
     $('.tv').addClass('collapse');
     term.disable();
-    setTimeout(function() {
-    window.close()
-    }, 2000);
 }
 
 function help() {
@@ -128,7 +129,7 @@ function help() {
     term.echo("Type [[b;#fff;]cmd] to rerun terminal");
     term.echo("Type [[b;#fff;]ls]/[[b;#fff;]dir] to list files"); 
     term.echo("Type [[b;#fff;]help] to list commands");
-    term.echo("Type [[b;#fff;]exit] to exit site");
+    term.echo("Type [[b;#fff;]shutdown] to shutdown the terminal");
 }
 
 function gettext(file){
