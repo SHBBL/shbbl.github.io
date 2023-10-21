@@ -48,8 +48,10 @@ var term = $('#terminal').terminal(function(command, term) {
                             break;
                         case 'README.md':
                             gettext('README.md');
+                            break;
                         case 'CNAME':
                             gettext('CNAME');
+                            break;
                         default:
                             term.error('File not found');
                             break;
