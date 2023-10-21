@@ -23,7 +23,7 @@ var term = $('#terminal').terminal(function(command, term) {
                 }else if (cmd[i] === 'cmd') {
                     rerun();
                 }else if (cmd[i] === 'ls' || cmd[i] === 'l' || cmd[i] === 'dir') {
-                    term.echo("index.html   script.js   style.css   README.md   CNAME");
+                    term.echo("index.html   script.js   style.css");
                 }else if (cmd[i] === 'help') {
                     help();
                 }else if (cmd[i] === 'setname') { 
@@ -45,12 +45,6 @@ var term = $('#terminal').terminal(function(command, term) {
                             break;
                         case 'style.css':
                             gettext('style.css');
-                            break;
-                        case 'README.md':
-                            gettext('README.md');
-                            break;
-                        case 'CNAME':
-                            gettext('CNAME');
                             break;
                         default:
                             term.error('File not found');
